@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<h1>Hoş Geldiniz!</h1>
+
+<!-- Hata Mesajı -->
+<p th:if="${error}" style="color: red; font-weight: bold;" th:text="${error}"></p>
+
+<!-- Kullanıcı Adı -->
+<p><strong>Kullanıcı Adı:</strong> <span th:text="${username}"></span></p>
+
+<!-- Token Bilgileri -->
+<h2>Token Bilgileri</h2>
+
+<p><strong>JWT Token:</strong></p>
+<textarea th:text="${jwtToken}" readonly></textarea>
+
+<p><strong>Refresh Token:</strong></p>
+<textarea th:text="${refreshToken}" readonly></textarea>
+
+<!-- Çıkış Yap Butonu -->
+<br><br>
+<a href="/logout">Çıkış Yap</a>
+
+</body>
+</html>

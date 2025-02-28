@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ödeme Sayfası</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        #card-element { padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        #submit { margin-top: 10px; padding: 10px 15px; background-color: green; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+<h2>Ödeme Sayfası</h2>
+<form id="payment-form">
+    <div id="card-element"></div>
+    <button type="submit" id="submit">Ödemeyi Tamamla</button>
+</form>
+<p id="payment-message"></p>
+
+<script>
+    const stripe = Stripe("pk_test_YOUR_PUBLIC_KEY"); // Public Key buraya gelecek
+
+    async function initialize() {
+        const response = await fetch("/api/payment/create-payment-intent", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ amount: 1000 }) // 10.00 TL
+        });
+
+        const { clientSecret } = await response.json();
+
+        const elements = stripe.elements();
+        const card = elements.create("card");
+        card.mount("#card-element");
+
+        document.querySelector("#payment-form").addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const { paymentIntent, error } = await stripe.confirmCardPayment(clientSecret, {
+                payment_method: {
+                    card: card
+                }
+            });
+
+            if (error) {
+                document.querySelector("#payment-message").innerText = "Ödeme başarısız: " + error.message;
+            } else {
+                document.querySelector("#payment-message").innerText = "Ödeme başarılı!";
+            }
+        });
+    }
+    initialize();
+</script>
+</body>
+</html>

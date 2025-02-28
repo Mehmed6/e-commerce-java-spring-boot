@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Error Page</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+
+<div class="card p-4 shadow-lg">
+  <h2 class="text-center text-danger">Bir Hata Oluştu!</h2>
+
+  <!-- Hata mesajı -->
+  <div th:if="${errorCode}" class="alert alert-danger text-center">
+    <strong>Hata Kodu:</strong> <span th:text="${errorCode}"></span>
+  </div>
+
+  <div th:if="${errorMessage}" class="alert alert-danger text-center">
+    <strong>Mesaj:</strong> <span th:text="${errorMessage}"></span>
+  </div>
+
+  <div th:if="${errorTime}" class="alert alert-info text-center">
+    <strong>Hata Zamanı:</strong> <span th:text="${errorTime}"></span>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
