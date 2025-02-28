@@ -1,8 +1,6 @@
 package com.doganmehmet.app.jwt;
 
-import com.doganmehmet.app.exception.ApiException;
-import com.doganmehmet.app.exception.MyError;
-import com.doganmehmet.app.services.JwtTokenService;
+
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,13 +18,11 @@ import java.io.IOException;
 public class JWTAuthenticationFilter extends OncePerRequestFilter {
     private final JWTTransactions m_jwtTransactions;
     private final UserDetailsService m_userDetailsService;
-    private final JwtTokenService m_jwtTokenService;
 
-    public JWTAuthenticationFilter(JWTTransactions jwtTransactions, UserDetailsService userDetailsService, JwtTokenService jwtTokenService)
+    public JWTAuthenticationFilter(JWTTransactions jwtTransactions, UserDetailsService userDetailsService)
     {
         m_jwtTransactions = jwtTransactions;
         m_userDetailsService = userDetailsService;
-        m_jwtTokenService = jwtTokenService;
     }
 
     @Override
@@ -60,7 +56,6 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
             }
         }
         catch (Exception ignored) {
-            //throw new ApiException(MyError.JWT_TOKEN_EXPIRED);
         }
 
         filterChain.doFilter(request, response);

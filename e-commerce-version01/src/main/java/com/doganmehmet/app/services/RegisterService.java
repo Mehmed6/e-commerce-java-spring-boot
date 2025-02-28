@@ -50,6 +50,4 @@ public class RegisterService {
         m_userRepository.save(user);
         return m_mapper.toUserDTO(user);
     }
-
-
 }

@@ -14,12 +14,9 @@ import java.util.List;
 @Mapper(implementationName = "ProductMapperImpl", componentModel = "spring", uses = {MapperHelper.class})
 public interface IProductMapper {
 
-    //@Mapping(target = "productId", ignore = true)
-    //@Mapping(target = "created_at", ignore = true)
     @Mapping(target = "category", source = "categoryName", qualifiedByName = "findCategoryForMapper")
     Product updateProduct(@MappingTarget Product product, ProductSaveDTO productSaveDTO);
 
-    //@Mapping(target = "id", ignore = true)
     @Mapping(target = "category", source = "categoryName", qualifiedByName = "findCategoryForMapper")
     Product toProduct(ProductSaveDTO productSaveDTO);
 

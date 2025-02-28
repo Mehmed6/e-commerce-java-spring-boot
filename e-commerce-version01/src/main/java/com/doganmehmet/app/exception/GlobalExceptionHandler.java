@@ -1,5 +1,6 @@
 package com.doganmehmet.app.exception;
 
+
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
@@ -53,16 +54,16 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
-//    @ExceptionHandler(ExpiredJwtException.class)
-//    public ResponseEntity<Map<String, String>> handleExpiredJwtException(ExpiredJwtException exception, WebRequest request)
-//    {
-//        var errorResponse = new HashMap<String, String>();
-//        errorResponse.put("errorCode", "JWT_TOKEN_EXPIRED");
-//        errorResponse.put("message", exception.getMessage());
-//        errorResponse.put("path", request.getDescription(false).replace("uri=", ""));
-//        errorResponse.put("errorTime", LocalDateTime.now().format(m_formatter));
-//        return new ResponseEntity<>(errorResponse, HttpStatus.FORBIDDEN);
-//    }
+    @ExceptionHandler(ExpiredJwtException.class)
+    public ResponseEntity<Map<String, String>> handleExpiredJwtException(ExpiredJwtException exception, WebRequest request)
+    {
+        var errorResponse = new HashMap<String, String>();
+        errorResponse.put("errorCode", "JWT_TOKEN_EXPIRED");
+        errorResponse.put("message", exception.getMessage());
+        errorResponse.put("path", request.getDescription(false).replace("uri=", ""));
+        errorResponse.put("errorTime", LocalDateTime.now().format(m_formatter));
+        return new ResponseEntity<>(errorResponse, HttpStatus.FORBIDDEN);
+    }
 
     @ExceptionHandler(AuthorizationDeniedException.class)
     public ResponseEntity<Map<String, String>> handleAuthorizationDeniedException(AuthorizationDeniedException exception, WebRequest request)

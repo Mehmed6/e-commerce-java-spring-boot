@@ -4,7 +4,6 @@ import com.doganmehmet.app.dto.address.AddressDTO;
 import com.doganmehmet.app.entity.Address;
 import com.doganmehmet.app.entity.User;
 import com.doganmehmet.app.entity.UserAddress;
-import com.doganmehmet.app.enums.AddressTYPE;
 import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
 import com.doganmehmet.app.mapper.IAddressMapper;
@@ -80,13 +79,10 @@ public class AddressService {
 
         userAddress.setUser(user);
         userAddress.setAddress(address);
-//        userAddress.setAddressType(addressRequest.getAddressType());
+
         m_userAddressRepository.save(userAddress);
 
-        var addressDTO = m_addressMapper.toAddressDTO(address);
-//        addressDTO.setAddressType(addressRequest.getAddressType().toString());
-
-        return addressDTO;
+        return m_addressMapper.toAddressDTO(address);
     }
 
     public List<AddressDTO> findAddressByUsername(String username)
@@ -124,7 +120,6 @@ public class AddressService {
 
         var userAddress = m_userAddressRepository.findByAddress(updatedAddress);
         userAddress.setAddress(address);
-//        userAddress.setAddressType(addressRequest.getAddressType());
         m_userAddressRepository.save(userAddress);
 
         return  m_addressMapper.toAddressDTO(updatedAddress);

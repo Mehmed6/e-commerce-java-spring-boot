@@ -6,7 +6,6 @@ import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
 import com.doganmehmet.app.jwt.JWTTransactions;
 import com.doganmehmet.app.repositories.IRefreshTokenRepository;
-import com.doganmehmet.app.repositories.IUserRepository;
 import com.doganmehmet.app.response.LoginResponse;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -19,14 +18,12 @@ public class RefreshTokenService {
     private final IRefreshTokenRepository m_refreshTokenRepository;
     private final JwtTokenService m_jwtTokenService;
     private final JWTTransactions m_jwtTransactions;
-    private final IUserRepository m_userRepository;
 
-    public RefreshTokenService(IRefreshTokenRepository refreshTokenRepository, JwtTokenService jwtTokenService, JWTTransactions jwtTransactions, IUserRepository userRepository)
+    public RefreshTokenService(IRefreshTokenRepository refreshTokenRepository, JwtTokenService jwtTokenService, JWTTransactions jwtTransactions)
     {
         m_refreshTokenRepository = refreshTokenRepository;
         m_jwtTokenService = jwtTokenService;
         m_jwtTransactions = jwtTransactions;
-        m_userRepository = userRepository;
     }
 
     public LoginResponse refreshToken(String refreshToken)

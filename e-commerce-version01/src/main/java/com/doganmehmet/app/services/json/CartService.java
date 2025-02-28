@@ -45,15 +45,6 @@ public class CartService {
             throw new ApiException(MyError.INSUFFICIENT_STOCK);
 
         try {
-//            var cartItems = userCart.getOrDefault(username, new ArrayList<>());
-//            var item = cartItems.stream().filter(ci -> ci.getProductId().equals(productId)).findFirst();
-//            if (item.isPresent())
-//                item.get().setQuantity(item.get().getQuantity() + quantity);
-//            else
-//                cartItems.add(new CartItem(productId, product.get().getName(), quantity));
-//
-//            userCart.put(username, cartItems);
-//            return "Success";
             var cartItems = userCart.computeIfAbsent(username, ci -> new ArrayList<>());
 
             cartItems.stream()

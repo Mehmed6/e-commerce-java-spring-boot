@@ -10,6 +10,4 @@ import org.springframework.context.annotation.Primary;
 public interface IMapper {
 
     UserDTO toUserDTO(User user);
-
-    User toUser(UserDTO userDTO);
 }

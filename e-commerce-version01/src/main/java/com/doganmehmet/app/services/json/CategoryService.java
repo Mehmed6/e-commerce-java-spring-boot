@@ -7,7 +7,6 @@ import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
 import com.doganmehmet.app.mapper.ICategoryMapper;
 import com.doganmehmet.app.repositories.ICategoryRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 

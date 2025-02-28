@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
-import java.time.format.DateTimeFormatter;
 
 @Controller(ThymeleafBeanName.THYMELEAF_PRODUCT_CONTROLLER)
 @RequestMapping("api/admin")
@@ -19,13 +18,11 @@ public class ProductController {
 
     private final ProductService m_productService;
     private final SecurityControl m_securityControl;
-    private final DateTimeFormatter m_formatter;
 
-    public ProductController(ProductService productService, SecurityControl securityControl, DateTimeFormatter formatter)
+    public ProductController(ProductService productService, SecurityControl securityControl)
     {
         m_productService = productService;
         m_securityControl = securityControl;
-        m_formatter = formatter;
     }
 
     @GetMapping("/product/save/form")
@@ -64,10 +61,6 @@ public class ProductController {
         catch (ApiException ex) {
             model.addAttribute("errorMessage", "Invalid category");
             return "product/saveProduct";
-//            model.addAttribute("errorCode", ex.getMyError().getErrorCode());
-//            model.addAttribute("errorMessage", ex.getMyError().getErrorMessage());
-//            model.addAttribute("errorTime", LocalDateTime.now().format(m_formatter));
-//            return "errorPage";
         }
 
         model.addAttribute("message", "Product saved successfully");

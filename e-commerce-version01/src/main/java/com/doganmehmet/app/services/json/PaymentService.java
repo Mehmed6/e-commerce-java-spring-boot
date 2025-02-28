@@ -23,7 +23,6 @@ import java.util.List;
 @Service
 public class PaymentService {
 
-    private final IUserRepository m_userRepository;
     private final IAddressRepository m_addressRepository;
     private final IOrderRepository m_orderRepository;
     private final ICardInfoRepository m_cardInfoRepository;
@@ -40,9 +39,8 @@ public class PaymentService {
     @Value("${iyzico.baseUrl}")
     private String m_baseUrl;
 
-    public PaymentService(IUserRepository userRepository, IAddressRepository addressRepository, IOrderRepository orderRepository, ICardInfoRepository cardInfoRepository, IProductRepository productRepository, IAccountRepository accountRepository, SecurityControl securityControl)
+    public PaymentService(IAddressRepository addressRepository, IOrderRepository orderRepository, ICardInfoRepository cardInfoRepository, IProductRepository productRepository, IAccountRepository accountRepository, SecurityControl securityControl)
     {
-        m_userRepository = userRepository;
         m_addressRepository = addressRepository;
         m_orderRepository = orderRepository;
         m_cardInfoRepository = cardInfoRepository;
@@ -62,13 +60,6 @@ public class PaymentService {
         shippingAddress.setAddress(address.getRegistrationAddress());
         shippingAddress.setZipCode(address.getZipCode());
         return shippingAddress;
-//        address.setContactName("Dogan Mehmet");
-//        address.setCity("Hamburg");
-//        address.setCountry("USA");
-//        address.setAddress("Test mah Test spkak no 16");
-//        address.setZipCode("25746");
-//        paymentRequest.setShippingAddress(address);
-//        paymentRequest.setBillingAddress(address);
     }
 
     private PaymentCard setCardInfoForUser(Long cardId)
@@ -107,7 +98,6 @@ public class PaymentService {
 
     }
 
-
     public List<BasketItem> setItemsForUser(Long orderId)
     {
         var basketItems = new ArrayList<BasketItem>();
@@ -145,16 +135,6 @@ public class PaymentService {
         }
 
         return basketItems;
-
-//        var basketItems = new ArrayList<BasketItem>();
-//        var item = new BasketItem();
-//        item.setId("BI101");
-//        item.setName("Test item test");
-//        item.setCategory1("Test category 1");
-//        item.setCategory2("Test category 2");
-//        item.setPrice(new BigDecimal(100));
-//        item.setItemType(BasketItemType.PHYSICAL.name());
-//        basketItems.add(item);
     }
 
     private BigDecimal checkBalance(User user, Order order)
@@ -167,11 +147,8 @@ public class PaymentService {
         var balance = account.getBalance();
         var totalPrice = order.getTotalPrice();
 
-        if (totalPrice.compareTo(balance) > 0) {
-//            order.setStatus(Status.CANCELED);
-//            m_orderRepository.save(order);
+        if (totalPrice.compareTo(balance) > 0)
             throw new ApiException(MyError.INSUFFICIENT_BALANCE);
-        }
 
         account.setBalance(account.getBalance().subtract(totalPrice));
         m_accountRepository.save(account);
@@ -217,61 +194,8 @@ public class PaymentService {
             order.setStatus(Status.COMPLETED);
             m_orderRepository.save(order);
             return "success, payment ID: " + payment.getPaymentId();
-        } else {
-            //return "Error: " + payment.getErrorMessage();
+        } else
             throw new ApiException(MyError.GENERAL_ERROR, payment.getErrorMessage());
-        }
 
     }
-
-        // Baska ödeme secenegi // sSONRA BAKILACAK
-//    private PaymentIntent createPaymentIntent(Long amount, String currency) throws StripeException
-//    {
-//        Stripe.apiKey = m_stripeSecretKey;
-//        var params = PaymentIntentCreateParams.builder()
-//                .setAmount(amount * 100)
-//                .setCurrency(currency)
-//                .build();
-//
-//        return PaymentIntent.create(params);
-//    }
-//
-//    public String checkPayment(String username, Long orderId)
-//    {
-//        var user = m_userRepository.findByUsername(username)
-//                .orElseThrow(() -> new ApiException(MyError.USER_NOT_FOUND));
-//
-//        var order = m_orderRepository.findById(orderId)
-//                .orElseThrow(() -> new ApiException(MyError.ORDER_NOT_FOUND));
-//
-//        if (order.getStatus().equals(Status.COMPLETED))
-//            throw new ApiException(MyError.ORDER_ALREADY_COMPLETED);
-//
-//        m_securityControl.checkTokenUsernameMatch(username);
-//
-//        if (user.getAccount().getBalance().compareTo(order.getTotal_price()) < 0)
-//            throw new ApiException(MyError.INSUFFICIENT_BALANCE);
-//
-//        try {
-//            var paymentIntent = createPaymentIntent(order.getTotal_price().longValue(), "eur");
-//
-//
-//            System.out.println("Client Secret: " + paymentIntent.getClientSecret());
-//            System.out.println("PaymentIntent Status: " + paymentIntent.getStatus());
-//
-//            if (paymentIntent.getStatus().equals("succeeded")) {
-//                order.setStatus(Status.COMPLETED);
-//                m_orderRepository.save(order);
-//                return "success";
-//            }
-//        }
-//        catch (StripeException e) {
-//            return "Ödeme basarısız!" + e.getMessage();
-//        }
-//        catch (Exception e) {
-//            return "" + e.getMessage();
-//        }
-//
-//        return "beklenmedik hata!";
-//    }
 }

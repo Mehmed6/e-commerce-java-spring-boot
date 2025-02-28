@@ -4,7 +4,6 @@ import com.doganmehmet.app.dto.address.AddressDTO;
 import com.doganmehmet.app.entity.Address;
 import com.doganmehmet.app.request.AddressRequest;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 
 import java.util.List;
 

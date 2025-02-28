@@ -9,7 +9,6 @@ import com.doganmehmet.app.enums.Status;
 import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
 import com.doganmehmet.app.mapper.IOrderMapper;
-import com.doganmehmet.app.repositories.IOrderItemsRepository;
 import com.doganmehmet.app.repositories.IOrderRepository;
 import com.doganmehmet.app.repositories.IProductRepository;
 import com.doganmehmet.app.repositories.IUserRepository;
@@ -27,16 +26,13 @@ public class OrderService {
     private final SecurityControl m_securityControl;
     private final IProductRepository m_productRepository;
     private final IUserRepository m_userRepository;
-    private final IOrderItemsRepository m_orderItemsRepository;
     private final CartService m_cartService;
     private final IOrderMapper m_orderMapper;
-
 
     public OrderService(IOrderRepository orderRepository,
                         SecurityControl securityControl,
                         IProductRepository productRepository,
                         IUserRepository userRepository,
-                        IOrderItemsRepository orderItemsRepository,
                         CartService cartService,
                         IOrderMapper orderMapper)
     {
@@ -44,7 +40,6 @@ public class OrderService {
         m_securityControl = securityControl;
         m_productRepository = productRepository;
         m_userRepository = userRepository;
-        m_orderItemsRepository = orderItemsRepository;
         m_cartService = cartService;
         m_orderMapper = orderMapper;
     }
@@ -134,7 +129,8 @@ public class OrderService {
 
         return m_orderMapper.toOrderDTOList(m_orderRepository
                 .findByUser(m_userRepository
-                        .findByUsername(username).get()));
+                        .findByUsername(username)
+                        .orElseThrow(() -> new ApiException(MyError.USER_NOT_FOUND))));
     }
 
     public OrderDTOS deleteOrderById(String username, Long orderId)

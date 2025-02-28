@@ -1,6 +1,6 @@
 package com.doganmehmet.app.repositories;
 
-import com.doganmehmet.app.entity.Category;
+
 import com.doganmehmet.app.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

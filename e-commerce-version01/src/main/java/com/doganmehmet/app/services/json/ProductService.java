@@ -8,11 +8,8 @@ import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
 import com.doganmehmet.app.mapper.IProductMapper;
 import com.doganmehmet.app.repositories.IProductRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
 
 @Service(JSONBeanName.JSON_PRODUCT_SERVICE)
 public class ProductService {
@@ -55,9 +52,7 @@ public class ProductService {
 
     public ProductDTOS findAll()
     {
-
         return m_productMapper.toProductDTOS(m_productRepository.findAll());
-        //return products.stream().map(m_productMapper::toProductDTO).toList();
     }
 
     public ProductDTO updateById(Long id, ProductSaveDTO productSaveDTO)
@@ -71,17 +66,6 @@ public class ProductService {
         return m_productMapper.toProductDTO(updatedProduct);
     }
 
-    //DAHA SONRA ELE ALINACAK
-
-//    public ProductSaveDTO updateByName(String productName, ProductSaveDTO productSaveDTO)
-//    {
-//        var product = m_productRepository.findByName(productName)
-//                .orElseThrow(() -> new ApiException(MyError.PRODUCT_NOT_FOUND));
-//
-//        m_productRepository.save(m_productMapper.updateProduct(product, productSaveDTO));
-//        return productSaveDTO;
-//    }
-
     public String deleteById(Long id)
     {
         var product = m_productRepository.findById(id).
@@ -91,23 +75,6 @@ public class ProductService {
         return "Product deleted";
 
     }
-
-    //DAHA SONRA ELE ALINACAK
-
-//    @Transactional
-//    public String deleteByName(String productName)
-//    {
-//        var product = m_productRepository.findByName(productName);
-//
-//        if (product.isPresent()) {
-//            m_productRepository.delete(product.get());
-//            return "Product deleted";
-//        }
-//
-//        throw new ApiException(MyError.INVALID_PRODUCT_NAME);
-//        //return "Product not found";
-//
-//    }
 
     public void deleteAll()
     {

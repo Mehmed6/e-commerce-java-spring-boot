@@ -45,11 +45,4 @@ public class JwtTokenService {
     {
         m_jwtTokenRepository.deleteJwtTokenByUser(user);
     }
-
-
-
-    public boolean jwtTokenIsExists(String jwtToken)
-    {
-        return m_jwtTokenRepository.existsByJwt_token(jwtToken);
-    }
 }

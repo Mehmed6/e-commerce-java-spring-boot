@@ -1,6 +1,7 @@
 package com.doganmehmet.app.repositories;
 
 import com.doganmehmet.app.entity.Account;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,5 +13,6 @@ public interface IAccountRepository extends JpaRepository<Account, Long> {
 
     Optional<Account> findByUsername(String username);
 
+    @Transactional
     void deleteAccountByUsername(String username);
 }

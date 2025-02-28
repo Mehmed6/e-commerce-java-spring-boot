@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController(JSONBeanName.JSON_PRODUCT_CONTROLLER)
 @RequestMapping("json/api/admin")
@@ -54,26 +53,11 @@ public class ProductController {
         return m_productService.updateById(id, productSaveDTO);
     }
 
-    //DAHA SONRA ELE ALINACAK
-//    @PutMapping("/product/update/name")
-//    public ProductSaveDTO updateByName(@RequestParam("name") String productName,
-//                                       @RequestBody ProductSaveDTO productSaveDTO)
-//    {
-//        return m_productService.updateByName(productName, productSaveDTO);
-//    }
-
     @DeleteMapping("/product/delete/id")
     public String deleteById(@RequestParam Long id)
     {
         return m_productService.deleteById(id);
     }
-
-    //DAHA SONRA ELE ALINACAK
-//    @DeleteMapping("/product/delete/name")
-//    public String deleteByName(@RequestParam("name") String productName)
-//    {
-//        return m_productService.deleteByName(productName);
-//    }
 
     @DeleteMapping("/product/delete/all")
     public void deleteAll()
