@@ -1,6 +1,5 @@
 # e-Commerce Application with Spring Boot
 
----
 This project is an e-commerce platform developed with Java Spring Boot. It provides a system where users can securely register, log in, and use JWT-based authentication and authorization mechanisms. Once logged in, users can perform actions with a JWT token. If the token expires, a new token can be obtained using a refresh token. Only admin users can perform CRUD operations on categories and products.
 
 The project enhances user experience by using Thymeleaf for HTML-based frontend and JSON for API-based backend communication. Users can save multiple addresses and cards, add products to their cart, and place orders. Payment processing is done via Iyzico integration.
@@ -10,7 +9,7 @@ The project leverages tools like MapStruct and Lombok to simplify coding and inc
 
 ## 💻  Technologies Used
 
----
+
 * Java 17
 * Spring Boot
 * Spring Security
@@ -23,7 +22,7 @@ The project leverages tools like MapStruct and Lombok to simplify coding and inc
 
 ## 🔗  Services
 
----
+
 * **RegisterService:** Handles user registration operations, including creating new user accounts and saving user data to the database.
 * **LoginService:** Manages user login functionality by validating credentials and generating JWT tokens upon successful authentication.
 * **JwtTokenService:** Responsible for creating and validating JWT tokens, ensuring secure user authentication and authorization in the system.
@@ -39,22 +38,20 @@ The project leverages tools like MapStruct and Lombok to simplify coding and inc
 
 # 🌐 API Endpoints
 
----
 
 ## RegisterController - JSON
 
----
 * `Post /register/json`
   {
   "username": "username",
   "password": "password",
-  "email": "email@example.com"
+  "email": "email"
   } 
 The user submits this request body to perform the registration process.
 
 ## LoginController - JSON
 
----
+
 * `Post /login/json`
   {
   "username": "username",
@@ -64,13 +61,13 @@ The user submits this request body to perform the registration process.
 
 ## RefreshTokenController - JSON
 
----
+
 * `Post /refreshToken/json`
 Generates a new JWT and refresh token for an expired JWT token using the refresh token.
 
 ## CategoryController - JSON
 
----
+
 * `Post /json/api/category/save`
   Only admins can use this to create a new category with a category name.
 * `Get /json/api/category/find`
@@ -81,7 +78,7 @@ Generates a new JWT and refresh token for an expired JWT token using the refresh
 
 ## ProductController - JSON
 
----
+
 * `Post /json/api/product/save` {
   "name" : "name",
   "description" : "description",
@@ -105,7 +102,7 @@ Generates a new JWT and refresh token for an expired JWT token using the refresh
 
 ## CartController - JSON
 
----
+
 * `Post /json/api/cart/show/my-cart` {
   "username" : "username",
   "productId" : productId,
@@ -122,7 +119,7 @@ Generates a new JWT and refresh token for an expired JWT token using the refresh
   
 ## OrderController - JSON
 
----
+
 * `Post /json/api/order/create`
   The user creates an order from the items in the cart using their `username` and `password`.
 * `Post /json/api/order/complete`
@@ -138,7 +135,7 @@ Generates a new JWT and refresh token for an expired JWT token using the refresh
 
 ## AddressController - JSON
 
----
+
 * `Post /json/api/address/save` {
   "username" : "username",
   "firstName" : "firstName",
@@ -163,7 +160,7 @@ Generates a new JWT and refresh token for an expired JWT token using the refresh
 
 ## CardController - JSON
 
----
+
 * `Post /json/api/card/save` {
   "username" : "username",
   "cardHolderName" : "cardHolderName",
@@ -180,7 +177,7 @@ Generates a new JWT and refresh token for an expired JWT token using the refresh
 
 ## AccountController - JSON
 
----
+
 * `Post /json/api/account/save` {
   "username" : "username",
   "password" : "password",
@@ -204,14 +201,13 @@ Generates a new JWT and refresh token for an expired JWT token using the refresh
 
 ## PaymentController - JSON
 
----
 
 * `Post /json/api/payment/pay`
   The user can initiate the payment process with a request body like this. After performing several checks, if all values are correct and complete, the payment will be processed. If any value is incorrect or missing, an error will be thrown.
 
 ## ⚠️ JWT Token Usage
 
----
+
 All JSON-based operations require the use of **JWT (JSON Web Token)**. After successfully logging in, users must include their JWT token in the `Authorization` header of every API request. If the token expires, a new JWT token can be obtained using the **Refresh Token**.
 
 Example:
@@ -223,20 +219,18 @@ Example:
 * URL: `http://localhost:6767/register`
   Users can register on this page by filling out the form here.
 
----
 
 ## LoginController - Thymeleaf
 
 * URL: `http://localhost:6767/login`
   Users can log in with their username and password on this page.
 
----
+
 ## DashboardController - Thymeleaf
 
 * URL: `http://localhost:6767/dashboard`
   Users can view the JWT token and refresh token information on this page.
 
----
 
 ## CategoryController - Thymeleaf
 
