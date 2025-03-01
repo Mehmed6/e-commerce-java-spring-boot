@@ -222,7 +222,7 @@ Example:
 
 ## LoginController - Thymeleaf
 
-* URL: `http://localhost:6767/login`
+* URL: `http://localhost:6767/auth/login`
   Users can log in with their username and password on this page.
 
 
@@ -234,23 +234,23 @@ Example:
 
 ## CategoryController - Thymeleaf
 
-* URL: `http://localhost:6767/api/admin/category/save/form`
+* URL: `http://localhost:6767/admin/category/save/form`
   Only admins can create a category using the form on this page.
 
-* URL: `http://localhost:6767/api/admin/show/all/categories`
+* URL: `http://localhost:6767/admin/show/all/categories`
   Users can view all categories on this page.
 
-* URL: `http://localhost:6767/api/admin/category/delete/form`
+* URL: `http://localhost:6767/admin/category/delete/form`
   Only admins can delete a category using the form on this page.
 
 
 ## ProductController - Thymeleaf
 
-* URL: `http://localhost:6767/api/admin/product/save/form`
+* URL: `http://localhost:6767/admin/product/save/form`
   Only admins can create a product using the form on this page.
 
-* URL: `http://localhost:6767/api/admin/show/all/products`
+* URL: `http://localhost:6767/admin/show/all/products`
   Users can view all products on this page.
 
-* URL: `http://localhost:6767/api/admin/product/delete/form`
+* URL: `http://localhost:6767/admin/product/delete/form`
   Only admins can delete a product using the form on this page.
