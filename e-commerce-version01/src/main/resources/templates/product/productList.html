@@ -2,38 +2,35 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ürün Listesi</title>
+    <title>Products</title>
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body class="container mt-4">
 
-<h2 class="mb-3">Ürün Listesi</h2>
+<h2 class="mb-3">Product List</h2>
 
-<!-- Kayıt Başarılı Mesajı -->
 <div th:if="${message}" class="alert alert-success">
     <p th:text="${message}"></p>
 </div>
 
-<!-- Hata Mesajı -->
 <div th:if="${errorMessage}" class="alert alert-danger">
     <p th:text="${errorMessage}"></p>
 </div>
 
-<!-- Yeni Ürün Ekleme Butonu -->
-<a th:href="@{/admin/product/save/form}" class="btn btn-primary mb-3">Yeni Ürün Ekle</a>
+<a th:href="@{/admin/product/save/form}" class="btn btn-primary mb-3">Add a New Product</a>
 
-<!-- Ürün Listesi -->
+
 <table class="table table-striped table-hover">
     <thead class="table-dark">
     <tr>
         <th>ID</th>
-        <th>Ürün Adı</th>
-        <th>Açıklama</th>
-        <th>Fiyat</th>
-        <th>Stok</th>
-        <th>Kategori</th>
-        <th>Oluşturulma Tarihi</th>
+        <th>Product Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Category</th>
+        <th>Created Date</th>
     </tr>
     </thead>
     <tbody>
@@ -43,7 +40,7 @@
         <td th:text="${product.description}"></td>
         <td th:text="${product.price} + ' €'"></td>
         <td th:text="${product.stock}"></td>
-        <td th:text="${product.category != null ? product.category.name : 'Kategori Yok'}"></td>
+        <td th:text="${product.category != null ? product.category.name : 'No Category'}"></td>
         <td th:text="${#temporals.format(product.created_at, 'dd.MM.yyyy HH:mm')}"></td>
     </tr>
     </tbody>

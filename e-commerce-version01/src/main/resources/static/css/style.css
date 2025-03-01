@@ -1,4 +1,4 @@
-/* Genel Stiller */
+/* General Stills */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -7,12 +7,12 @@ body {
     text-align: center;
 }
 
-/* Başlık */
+/* Headers */
 h1 {
     color: #333;
 }
 
-/* Token Alanları */
+/* Tokens */
 textarea {
     width: 80%;
     max-width: 600px;
@@ -25,7 +25,7 @@ textarea {
     font-size: 14px;
 }
 
-/* Çıkış Yap Butonu */
+/* Buttons */
 a {
     display: inline-block;
     margin-top: 20px;

@@ -67,16 +67,4 @@ public class ProductService {
         return false;
     }
 
-    //DAHA SONRA BAKILACAK
-//    public String deleteProductByName(String productName)
-//    {
-//        var product = m_productRepository.findByName(productName);
-//
-//        if (product.isPresent()) {
-//            m_productRepository.delete(product.get());
-//            return "Product deleted";
-//        }
-//        return "Product not found -> " + productName;
-//    }
-
 }

@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Giriş Yap</title>
+  <title>Login</title>
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <style>
@@ -16,7 +16,7 @@
       padding: 30px;
       background: white;
       border-radius: 10px;
-      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     }
     .form-button button {
       width: 100%;
@@ -36,30 +36,28 @@
 </head>
 <body>
 <div class="login-container">
-  <h2 class="text-center mb-4">Giriş Yap</h2>
+  <h2 class="text-center mb-4">Login</h2>
 
   <div th:if="${message}" th:text="${message}" class="message"></div>
   <div th:if="${errorMessage}" th:text="${errorMessage}" class="errorMessage"></div>
 
   <form th:action="@{/auth/login}" method="post" th:object="${loginRequest}">
     <div class="mb-3">
-      <label for="username" class="form-label">Kullanıcı Adı</label>
+      <label for="username" class="form-label">Username</label>
       <input type="text" id="username" th:field="*{username}" class="form-control" required>
       <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="errorMessage"></div>
     </div>
 
     <div class="mb-3">
-      <label for="password" class="form-label">Şifre</label>
+      <label for="password" class="form-label">Password</label>
       <input type="password" id="password" th:field="*{password}" class="form-control" required>
       <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="errorMessage"></div>
     </div>
 
     <div class="form-button">
-      <button type="submit" class="btn btn-primary">Giriş Yap</button>
+      <button type="submit" class="btn btn-primary">login</button>
     </div>
   </form>
 </div>
-
-
 </body>
 </html>
