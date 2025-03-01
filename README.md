@@ -261,5 +261,3 @@ Example:
 
 * URL: `http://localhost:6767/api/admin/product/delete/form`
   Only admins can delete a product using the form on this page.
-
----
