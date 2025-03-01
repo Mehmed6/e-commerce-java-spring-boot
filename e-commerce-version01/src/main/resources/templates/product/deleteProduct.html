@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Ürün Sil</title>
@@ -15,7 +15,7 @@
   <div th:if="${message}" class="alert alert-success text-center" th:text="${message}"></div>
   <div th:if="${errorMessage}" class="alert alert-danger text-center" th:text="${errorMessage}"></div>
 
-  <form th:action="@{/api/admin/product/delete/form}" method="post">
+  <form th:action="@{/admin/product/delete/form}" method="post">
     <!-- Admin Kullanıcı Adı -->
     <div class="mb-3">
       <label for="username" class="form-label">Kullanıcı Adı:</label>

@@ -20,17 +20,17 @@ public class CartController {
         m_cartItemMapper = cartItemMapper;
     }
 
-    @GetMapping("/show/my-cart")
-    public CartItemDTOS showCart(@RequestParam String username)
-    {
-        return m_cartItemMapper.toCartItemDTOS(m_cartService.getCartItems(username));
-    }
-
     @PostMapping("/add/cart")
     public CartItemDTOS addToCart(@Valid @RequestBody AddToCartRequest request)
     {
         return m_cartItemMapper.toCartItemDTOS(m_cartService.
                 addToCart(request.getUsername(), request.getProductId(), request.getQuantity()));
+    }
+
+    @GetMapping("/show/my-cart")
+    public CartItemDTOS showCart(@RequestParam String username)
+    {
+        return m_cartItemMapper.toCartItemDTOS(m_cartService.getCartItems(username));
     }
 
     @DeleteMapping("/delete/from/cart")

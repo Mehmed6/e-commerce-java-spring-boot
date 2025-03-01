@@ -142,6 +142,9 @@ public class OrderService {
         if (order.isEmpty())
             throw new ApiException(MyError.ORDER_NOT_FOUND);
 
+        if (order.get().getStatus().equals(Status.COMPLETED))
+            throw new ApiException(MyError.ORDER_ALREADY_COMPLETED);
+
         m_orderRepository.deleteById(orderId);
         return m_orderMapper.toOrderDTOS(findOrderByUsername(username));
     }

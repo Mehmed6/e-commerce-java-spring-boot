@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController(JSONBeanName.JSON_PRODUCT_CONTROLLER)
-@RequestMapping("json/api/admin")
-@PreAuthorize("hasRole('ADMIN')")
+@RequestMapping("json/api/")
 public class ProductController {
     private final ProductService m_productService;
 
@@ -23,6 +22,7 @@ public class ProductController {
     }
 
     @PostMapping("/product/save")
+    @PreAuthorize("hasRole('ADMIN')")
     public ProductDTO saveProduct(@Valid @RequestBody ProductSaveDTO productSaveDTO)
     {
         return m_productService.saveProduct(productSaveDTO);
@@ -47,6 +47,7 @@ public class ProductController {
     }
 
     @PutMapping("/product/update/id")
+    @PreAuthorize("hasRole('ADMIN')")
     public ProductDTO updateById(@RequestParam Long id,
                                  @Valid @RequestBody ProductSaveDTO productSaveDTO)
     {
@@ -54,12 +55,14 @@ public class ProductController {
     }
 
     @DeleteMapping("/product/delete/id")
+    @PreAuthorize("hasRole('ADMIN')")
     public String deleteById(@RequestParam Long id)
     {
         return m_productService.deleteById(id);
     }
 
     @DeleteMapping("/product/delete/all")
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteAll()
     {
         m_productService.deleteAll();

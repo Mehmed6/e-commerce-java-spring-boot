@@ -10,7 +10,6 @@ public class DashboardController {
     @GetMapping("/dashboard")
     public String showDashboard(Model model, HttpSession session) {
 
-        // Session içindeki verileri kontrol et
         var usernameObj = session.getAttribute("username");
         var jwtTokenObj = session.getAttribute("jwtToken");
         var refreshTokenObj = session.getAttribute("refreshToken");

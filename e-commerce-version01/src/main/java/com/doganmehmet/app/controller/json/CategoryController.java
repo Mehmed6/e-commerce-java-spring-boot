@@ -4,15 +4,13 @@ import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.dto.category.CategoryDTOS;
 import com.doganmehmet.app.entity.Category;
 import com.doganmehmet.app.services.json.CategoryService;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController(JSONBeanName.JSON_CATEGORY_CONTROLLER)
-@RequestMapping("json/api/admin")
-@PreAuthorize("hasRole('ADMIN')")
+@RequestMapping("json/api/")
 public class CategoryController {
 
     private final CategoryService m_categoryService;
@@ -23,6 +21,7 @@ public class CategoryController {
     }
 
     @PostMapping("/category/save")
+    @PreAuthorize("hasRole('ADMIN')")
     public Category saveCategory(@RequestBody String categoryName)
     {
         return m_categoryService.saveCategory(categoryName);
@@ -41,14 +40,14 @@ public class CategoryController {
     }
 
     @DeleteMapping("/category/delete/id")
-    @Transactional
+    @PreAuthorize("hasRole('ADMIN')")
     public String deleteCategory(@RequestParam long id)
     {
         return m_categoryService.deleteCategoryById(id);
     }
 
     @DeleteMapping("/category/delete/name")
-    @Transactional
+    @PreAuthorize("hasRole('ADMIN')")
     public String deleteCategoryByName(@RequestParam String categoryName)
     {
         return m_categoryService.deleteCategoryByName(categoryName);

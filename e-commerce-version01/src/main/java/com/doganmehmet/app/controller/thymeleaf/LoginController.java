@@ -12,7 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @Controller(ThymeleafBeanName.THYMELEAF_LOGIN_CONTROLLER)
-@RequestMapping("/my-login")
+@RequestMapping("/auth/login")
 public class LoginController {
 
     private final LoginService m_loginService;

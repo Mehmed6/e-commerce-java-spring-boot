@@ -9,7 +9,7 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController(JSONBeanName.JSON_LOGIN_CONTROLLER)
-@RequestMapping("/my-login/json")
+@RequestMapping("/auth/login/json")
 public class LoginController {
 
     private final LoginService m_loginService;

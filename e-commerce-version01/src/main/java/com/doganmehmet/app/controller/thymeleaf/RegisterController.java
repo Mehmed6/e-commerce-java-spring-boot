@@ -49,6 +49,6 @@ public class RegisterController {
 
         redirectAttributes.addFlashAttribute("message", "Registration successful! You can log in now.");
 
-        return "redirect:my-login";
+        return "redirect:/auth/login";
     }
 }

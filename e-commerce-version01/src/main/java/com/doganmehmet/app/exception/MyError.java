@@ -44,6 +44,7 @@ public enum MyError {
     CARD_NUMBER_ALREADY_IN_USE("1033", "Card is already in use for User!"),
     CARD_NOT_FOUND("1034", "Card not found!"),
     ORDER_CANCELED("1035", "Order has been canceled. Please create a new one!"),
+    CATEGORY_ALREADY_EXISTS("1036", "Category is already exists!"),
     ;
 
 

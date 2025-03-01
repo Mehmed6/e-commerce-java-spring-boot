@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller(ThymeleafBeanName.THYMELEAF_CATEGORY_CONTROLLER)
-@RequestMapping("api/admin")
+@RequestMapping("/admin")
 public class CategoryController {
 
     private final CategoryService m_categoryService;

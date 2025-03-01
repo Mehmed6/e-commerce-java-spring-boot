@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Giriş Yap</title>
@@ -41,7 +41,7 @@
   <div th:if="${message}" th:text="${message}" class="message"></div>
   <div th:if="${errorMessage}" th:text="${errorMessage}" class="errorMessage"></div>
 
-  <form th:action="@{/my-login}" method="post" th:object="${loginRequest}">
+  <form th:action="@{/auth/login}" method="post" th:object="${loginRequest}">
     <div class="mb-3">
       <label for="username" class="form-label">Kullanıcı Adı</label>
       <input type="text" id="username" th:field="*{username}" class="form-control" required>

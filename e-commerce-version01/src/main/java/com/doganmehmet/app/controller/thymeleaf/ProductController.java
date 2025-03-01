@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 
 @Controller(ThymeleafBeanName.THYMELEAF_PRODUCT_CONTROLLER)
-@RequestMapping("api/admin")
+@RequestMapping("/admin")
 public class ProductController {
 
     private final ProductService m_productService;

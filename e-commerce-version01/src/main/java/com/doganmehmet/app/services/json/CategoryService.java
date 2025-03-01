@@ -7,6 +7,7 @@ import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
 import com.doganmehmet.app.mapper.ICategoryMapper;
 import com.doganmehmet.app.repositories.ICategoryRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 
@@ -23,6 +24,11 @@ public class CategoryService {
 
     public Category saveCategory(String categoryName)
     {
+        var checkCategory = m_categoryRepository.findCategoryByName(categoryName);
+
+        if (checkCategory.isPresent())
+            throw new ApiException(MyError.CATEGORY_ALREADY_EXISTS);
+
         Category category = new Category();
         category.setName(categoryName);
         return m_categoryRepository.save(category);
@@ -40,6 +46,7 @@ public class CategoryService {
     }
 
 
+    @Transactional
     public String deleteCategoryById(long id)
     {
         var category = m_categoryRepository.findById(id);
@@ -52,11 +59,12 @@ public class CategoryService {
         throw new ApiException(MyError.INVALID_CATEGORY_ID);
     }
 
+    @Transactional
     public String deleteCategoryByName(String categoryName)
     {
         var category = m_categoryRepository.findCategoryByName(categoryName);
 
-        if(category.isPresent()) {
+        if (category.isPresent()) {
             m_categoryRepository.delete(category.get());
             return "Category deleted";
         }

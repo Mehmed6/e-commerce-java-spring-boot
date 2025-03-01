@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @RestController(JSONBeanName.JSON_ACCOUNT_CONTROLLER)
-@RequestMapping("json/account")
+@RequestMapping("json/api/account")
 public class AccountController {
     private final AccountService m_accountService;
 
@@ -21,25 +21,25 @@ public class AccountController {
         m_accountService = accountService;
     }
 
-    @PostMapping("/save/account")
+    @PostMapping("/save")
     public AccountDTO saveAccount(@Valid @RequestBody AccountSaveDTO accountSaveDTO)
     {
         return m_accountService.saveAccount(accountSaveDTO);
     }
 
-    @GetMapping("/find/account/no")
+    @GetMapping("/find/no")
     public AccountDTO findAccountByAccountNo(@RequestParam String accountNo)
     {
         return m_accountService.findAccountByAccountNo(accountNo);
     }
 
-    @GetMapping("/find/account/username")
+    @GetMapping("/find/username")
     public AccountDTO findAccountByUsername(@RequestParam String username)
     {
         return m_accountService.findAccountByUsername(username);
     }
 
-    @GetMapping("/find/all/account")
+    @GetMapping("/find/all")
     @PreAuthorize("hasRole('ADMIN')")
     public List<AccountDTO> findAllAccount()
     {
@@ -52,7 +52,7 @@ public class AccountController {
         return m_accountService.addBalance(username, balance);
     }
 
-    @DeleteMapping("/delete/account")
+    @DeleteMapping("/delete")
     public void deleteAccountByUsername(@RequestParam String username)
     {
         m_accountService.deleteAccountByUsername(username);

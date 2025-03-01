@@ -23,32 +23,32 @@ public class OrderController {
         m_orderMapper = orderMapper;
     }
 
-    @PostMapping("/create/order")
+    @PostMapping("/create")
     public OrderDTO createOrder(@RequestParam String username,@RequestParam String password)
     {
         return m_orderService.creatOrder(username, password);
     }
 
-    @PostMapping("/complete/order")
+    @PostMapping("/complete")
     @PreAuthorize("hasRole('ADMIN')")
     public OrderDTO completeOrder(@RequestParam Long orderId)
     {
         return m_orderService.completeOrder(orderId);
     }
 
-    @GetMapping("/find/order")
+    @GetMapping("/find")
     public OrderDTOS findOrderByUsername(@RequestParam String username)
     {
         return m_orderMapper.toOrderDTOS(m_orderService.findOrderByUsername(username));
     }
 
-    @DeleteMapping("delete/order/id")
+    @DeleteMapping("delete/id")
     public OrderDTOS deleteOrderById(@RequestParam String username, @RequestParam Long orderId)
     {
         return m_orderService.deleteOrderById(username, orderId);
     }
 
-    @DeleteMapping("delete/order/cancel")
+    @DeleteMapping("delete/status")
     public OrderDTOS deleteOrderIfCancel(@RequestParam String username, @RequestParam Status status)
     {
         return m_orderService.deleteOrderIfCancel(username, status);

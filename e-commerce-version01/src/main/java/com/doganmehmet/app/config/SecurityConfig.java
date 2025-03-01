@@ -17,9 +17,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private static final String REGISTER = "/register/**";
-    private static final String LOGIN = "/my-login/**"; //authenticate
+    private static final String LOGIN = "/auth/login/**";
     private static final String REFRESH_TOKEN = "/refreshToken/**";
-    private static final String ADMIN = "/api/admin/**";
+    private static final String ADMIN = "/admin/**";
     private static final String DASHBOARD = "/dashboard";
 
     private final AuthenticationProvider m_authenticationProvider;
