@@ -249,7 +249,6 @@ Example:
 * URL: `http://localhost:6767/api/admin/category/delete/form`
   Only admins can delete a category using the form on this page.
 
----
 
 ## ProductController - Thymeleaf
 
