@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller(ThymeleafBeanName.THYMELEAF_CATEGORY_CONTROLLER)
-@RequestMapping("/admin")
+@RequestMapping
 public class CategoryController {
 
     private final CategoryService m_categoryService;
@@ -22,13 +22,13 @@ public class CategoryController {
         m_securityControl = securityControl;
     }
 
-    @GetMapping("/category/save/form")
+    @GetMapping("/admin/category/save/form")
     public String showCategorySaveForm()
     {
         return "category/saveCategory";
     }
 
-    @PostMapping("/category/save/form")
+    @PostMapping("/admin/category/save/form")
     public String saveCategory(@RequestParam String username,
                                @RequestParam String password,
                                @RequestParam String name,
@@ -59,13 +59,13 @@ public class CategoryController {
         return "category/categoryList";
     }
 
-    @GetMapping("/category/delete/form")
+    @GetMapping("/admin/category/delete/form")
     private String showDeleteForm()
     {
         return "category/deleteCategory";
     }
 
-    @PostMapping("/category/delete/form")
+    @PostMapping("/admin/category/delete/form")
     public String deleteCategory(@RequestParam String category,
                                  @RequestParam String username,
                                  @RequestParam String password,

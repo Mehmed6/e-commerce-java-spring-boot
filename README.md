@@ -237,7 +237,7 @@ Example:
 * URL: `http://localhost:6767/admin/category/save/form`
   Only admins can create a category using the form on this page.
 
-* URL: `http://localhost:6767/admin/show/all/categories`
+* URL: `http://localhost:6767/show/all/categories`
   Users can view all categories on this page.
 
 * URL: `http://localhost:6767/admin/category/delete/form`
@@ -249,8 +249,31 @@ Example:
 * URL: `http://localhost:6767/admin/product/save/form`
   Only admins can create a product using the form on this page.
 
-* URL: `http://localhost:6767/admin/show/all/products`
+* URL: `http://localhost:6767/show/all/products`
   Users can view all products on this page.
 
 * URL: `http://localhost:6767/admin/product/delete/form`
   Only admins can delete a product using the form on this page.
+
+## ShoppingController - Thymeleaf
+
+* URL: `http://localhost:6767/public/cart/show/my-cart`
+  The user can view their cart on this page.
+
+* URL: `http://localhost:6767/public/cart/add/my-cart`
+  The user can add products to their cart on this page.
+
+* URL: `http://localhost:6767/public/cart/delete/from/cart`
+  The user can remove products from their cart on this page.
+
+* URL: `http://localhost:6767/public/order/show/my-orders`
+  The user can view their orders on this page.
+
+* URL: `http://localhost:6767/public/order/create/order`
+  The user can create a new order on this page.
+
+* URL: `http://localhost:6767/public/order/cancel`
+  The user can cancel an order on this page.
+
+* URL: `http://localhost:6767/public/pay`
+  The user can complete the payment on this page.

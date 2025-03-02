@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 
 @Controller(ThymeleafBeanName.THYMELEAF_PRODUCT_CONTROLLER)
-@RequestMapping("/admin")
+@RequestMapping
 public class ProductController {
 
     private final ProductService m_productService;
@@ -25,13 +25,13 @@ public class ProductController {
         m_securityControl = securityControl;
     }
 
-    @GetMapping("/product/save/form")
+    @GetMapping("/admin/product/save/form")
     public String showSaveForm(Model model)
     {
         return "product/saveProduct";
     }
 
-    @PostMapping("/product/save/form")
+    @PostMapping("/admin/product/save/form")
     public String saveProduct(@RequestParam String username,
                               @RequestParam String password,
                               @ModelAttribute ProductSaveDTO productSaveDTO,
@@ -75,13 +75,13 @@ public class ProductController {
         return "product/productList";
     }
 
-    @GetMapping("/product/delete/form")
+    @GetMapping("/admin/product/delete/form")
     public String showDeleteForm()
     {
         return "product/deleteProduct";
     }
 
-    @PostMapping("product/delete/form")
+    @PostMapping("/admin/product/delete/form")
     public String deleteProduct(@RequestParam String username,
                                 @RequestParam String password,
                                 @RequestParam Long productId,

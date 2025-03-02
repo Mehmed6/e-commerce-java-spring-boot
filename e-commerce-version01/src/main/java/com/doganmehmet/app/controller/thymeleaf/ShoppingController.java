@@ -110,14 +110,14 @@ public class ShoppingController {
         return "shopping/my-cart";
     }
 
-    @GetMapping("order/show/my-orders")
+    @GetMapping("/order/show/my-orders")
     public String showOrder(Model model)
     {
         model.addAttribute("orders", m_orderService.findAll());
         return "shopping/my-orders";
     }
 
-    @GetMapping("order/create/order")
+    @GetMapping("/order/create/order")
     public String createOrder()
     {
         return "shopping/createOrder";
@@ -140,7 +140,7 @@ public class ShoppingController {
         return "redirect:/public/order/show/my-orders";
     }
 
-    @PostMapping("order/cancel")
+    @PostMapping("/order/cancel")
     public String deleteOrder(@RequestParam("orderId") Long orderId)
     {
         m_orderService.deleteOrderById(orderId);
