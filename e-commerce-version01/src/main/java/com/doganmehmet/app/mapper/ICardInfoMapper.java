@@ -11,7 +11,9 @@ import java.util.List;
 public interface ICardInfoMapper {
     CardInfo toCardInfo(CardInfoRequest cardInfoRequest);
 
+    CardInfo toCardInfo(CardInfoDTO cardInfoDTO);
     CardInfoDTO toCardInfoDTO(CardInfo cardInfo);
 
     List<CardInfoDTO> toCardInfoDTOList(List<CardInfo> cardInfoList);
+
 }

@@ -14,4 +14,6 @@ public interface ICardInfoRepository extends JpaRepository<CardInfo, Long> {
     CardInfo findByUserAndCardNumber(User user, String cardNumber);
 
     boolean existsByCardNumber(String cardNumber);
+
+    CardInfo findByCardNumber(String cardNumber);
 }

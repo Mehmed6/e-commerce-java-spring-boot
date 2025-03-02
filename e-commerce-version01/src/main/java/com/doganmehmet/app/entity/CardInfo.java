@@ -27,7 +27,7 @@ public class CardInfo {
     @Column(name = "expiry_year")
     private String expiryYear;
 
-    private String cvc;
+    private String cvv;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)

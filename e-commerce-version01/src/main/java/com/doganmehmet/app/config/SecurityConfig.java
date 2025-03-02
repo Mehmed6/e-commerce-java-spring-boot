@@ -21,6 +21,7 @@ public class SecurityConfig {
     private static final String REFRESH_TOKEN = "/refreshToken/**";
     private static final String ADMIN = "/admin/**";
     private static final String DASHBOARD = "/dashboard";
+    private static final String PUBLIC = "/public/**";
 
     private final AuthenticationProvider m_authenticationProvider;
     private final JWTAuthenticationFilter m_authenticationFilter;
@@ -35,7 +36,7 @@ public class SecurityConfig {
     {
         http.csrf().disable()
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers(REGISTER, LOGIN, REFRESH_TOKEN, DASHBOARD, ADMIN).permitAll()
+                        .requestMatchers(REGISTER, LOGIN, REFRESH_TOKEN, DASHBOARD, ADMIN, PUBLIC).permitAll()
                         .requestMatchers("/css/**", "/favicon.ico").permitAll()
                         .requestMatchers("api/admin/save/form").permitAll()
 //                        .requestMatchers(ADMIN)

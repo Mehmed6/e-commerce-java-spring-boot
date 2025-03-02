@@ -1,4 +1,4 @@
-package com.doganmehmet.app.services.json;
+package com.doganmehmet.app.services;
 
 import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.dto.order.OrderDTO;
@@ -12,7 +12,6 @@ import com.doganmehmet.app.mapper.IOrderMapper;
 import com.doganmehmet.app.repositories.IOrderRepository;
 import com.doganmehmet.app.repositories.IProductRepository;
 import com.doganmehmet.app.repositories.IUserRepository;
-import com.doganmehmet.app.services.SecurityControl;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -123,20 +122,26 @@ public class OrderService {
         return m_orderMapper.toOrderDTO(m_orderRepository.save(order));
     }
 
+    public Order findOrderById(Long orderId)
+    {
+        return m_orderRepository.findById(orderId)
+                .orElseThrow(() -> new ApiException(MyError.ORDER_NOT_FOUND));
+    }
     public List<OrderDTO> findOrderByUsername(String username)
     {
-        m_securityControl.checkTokenUserMatch(username);
-
         return m_orderMapper.toOrderDTOList(m_orderRepository
                 .findByUser(m_userRepository
                         .findByUsername(username)
                         .orElseThrow(() -> new ApiException(MyError.USER_NOT_FOUND))));
     }
 
+    public List<Order> findAll()
+    {
+        return m_orderRepository.findAll();
+    }
+
     public OrderDTOS deleteOrderById(String username, Long orderId)
     {
-        m_securityControl.checkTokenUserMatch(username);
-
         var order = m_orderRepository.findById(orderId);
 
         if (order.isEmpty())
@@ -149,19 +154,20 @@ public class OrderService {
         return m_orderMapper.toOrderDTOS(findOrderByUsername(username));
     }
 
-    public OrderDTOS deleteOrderIfCancel(String username, Status status)
+    public OrderDTOS deleteOrderByStatus(String username, Status status)
     {
-        m_securityControl.checkTokenUserMatch(username);
-
         var orders = m_orderRepository.findAllByStatus(status);
         m_orderRepository.deleteAll(orders);
 
         return m_orderMapper.toOrderDTOS(findOrderByUsername(username));
     }
 
-    public void deleteAll(String username)
+    public void deleteOrderById(Long orderId)
     {
-        m_securityControl.checkTokenUserMatch(username);
+        m_orderRepository.deleteById(orderId);
+    }
+    public void deleteAll()
+    {
         m_orderRepository.deleteAll();
     }
 }

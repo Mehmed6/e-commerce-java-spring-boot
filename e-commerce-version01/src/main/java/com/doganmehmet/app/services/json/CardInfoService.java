@@ -44,8 +44,6 @@ public class CardInfoService {
 
     public CardInfoDTO saveCard(CardInfoRequest cardInfoRequest)
     {
-        m_securityControl.checkTokenUserMatch(cardInfoRequest.getUsername());
-
         var year = Integer.parseInt(cardInfoRequest.getExpiryYear());
         var month = Integer.parseInt(cardInfoRequest.getExpiryMonth());
         var expiryDate = LocalDate.of(year, month, 1);
@@ -69,17 +67,24 @@ public class CardInfoService {
 
     public List<CardInfoDTO> findCardByUsername(String username)
     {
-        m_securityControl.checkTokenUserMatch(username);
-
         var user = m_userRepository.findByUsername(username)
                 .orElseThrow(() -> new ApiException(MyError.USER_NOT_FOUND));
 
         return m_cardInfoMapper.toCardInfoDTOList(m_cardInfoRepository.findByUser(user));
     }
 
+    public CardInfo findCardByCardNumber(String cardNumber)
+    {
+        return m_cardInfoRepository.findByCardNumber(cardNumber);
+    }
+
+    public boolean existsByCardNumber(String cardNumber)
+    {
+        return m_cardInfoRepository.existsByCardNumber(cardNumber);
+    }
+
     public String deleteCardByUsername(String username, String cardNumber)
     {
-        m_securityControl.checkTokenUserMatch(username);
         var user = m_userRepository.findByUsername(username)
                 .orElseThrow(() -> new ApiException(MyError.USER_NOT_FOUND));
 

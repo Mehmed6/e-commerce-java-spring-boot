@@ -73,12 +73,12 @@ public class CategoryController {
     {
         try {
             if (!m_securityControl.isAdmin(username, password)) {
-                model.addAttribute("errorMessage", "Only admins can delete categories");
+                model.addAttribute("errorMessage", "Only admins can delete categories!");
                 return "category/deleteCategory";
             }
         }
         catch (AuthenticationException e) {
-            model.addAttribute("errorMessage", "Kullanıcı adı yada şifre yanlıs");
+            model.addAttribute("errorMessage", "Incorrect Username or Password!");
             return "category/deleteCategory";
         }
 

@@ -6,7 +6,8 @@ import com.doganmehmet.app.dto.order.OrderDTO;
 import com.doganmehmet.app.dto.order.OrderDTOS;
 import com.doganmehmet.app.enums.Status;
 import com.doganmehmet.app.mapper.IOrderMapper;
-import com.doganmehmet.app.services.json.OrderService;
+import com.doganmehmet.app.services.SecurityControl;
+import com.doganmehmet.app.services.OrderService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,16 +17,19 @@ import org.springframework.web.bind.annotation.*;
 public class OrderController {
     private final OrderService m_orderService;
     private final IOrderMapper m_orderMapper;
+    private final SecurityControl m_securityControl;
 
-    public OrderController(OrderService orderService, IOrderMapper orderMapper)
+    public OrderController(OrderService orderService, IOrderMapper orderMapper, SecurityControl securityControl)
     {
         m_orderService = orderService;
         m_orderMapper = orderMapper;
+        m_securityControl = securityControl;
     }
 
     @PostMapping("/create")
     public OrderDTO createOrder(@RequestParam String username,@RequestParam String password)
     {
+        m_securityControl.checkTokenUserMatch(username);
         return m_orderService.creatOrder(username, password);
     }
 
@@ -39,24 +43,28 @@ public class OrderController {
     @GetMapping("/find")
     public OrderDTOS findOrderByUsername(@RequestParam String username)
     {
+        m_securityControl.checkTokenUserMatch(username);
         return m_orderMapper.toOrderDTOS(m_orderService.findOrderByUsername(username));
     }
 
     @DeleteMapping("delete/id")
     public OrderDTOS deleteOrderById(@RequestParam String username, @RequestParam Long orderId)
     {
+        m_securityControl.checkTokenUserMatch(username);
         return m_orderService.deleteOrderById(username, orderId);
     }
 
     @DeleteMapping("delete/status")
     public OrderDTOS deleteOrderIfCancel(@RequestParam String username, @RequestParam Status status)
     {
-        return m_orderService.deleteOrderIfCancel(username, status);
+        m_securityControl.checkTokenUserMatch(username);
+        return m_orderService.deleteOrderByStatus(username, status);
     }
 
     @DeleteMapping("delete/all")
     public void deleteAll(@RequestParam String username)
     {
-        m_orderService.deleteAll(username);
+        m_securityControl.checkTokenUserMatch(username);
+        m_orderService.deleteAll();
     }
 }

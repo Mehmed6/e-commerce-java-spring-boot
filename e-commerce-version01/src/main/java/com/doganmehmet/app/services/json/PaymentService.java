@@ -20,7 +20,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service("json")
 public class PaymentService {
 
     private final IAddressRepository m_addressRepository;
@@ -73,7 +73,7 @@ public class PaymentService {
         paymentCard.setCardNumber(userCard.getCardNumber());
         paymentCard.setExpireMonth(userCard.getExpiryMonth());
         paymentCard.setExpireYear(userCard.getExpiryYear());
-        paymentCard.setCvc(userCard.getCvc());
+        paymentCard.setCvc(userCard.getCvv());
 
         return paymentCard;
     }
@@ -101,7 +101,6 @@ public class PaymentService {
     public List<BasketItem> setItemsForUser(Long orderId)
     {
         var basketItems = new ArrayList<BasketItem>();
-        var item = new BasketItem();
         var totalPrice = BigDecimal.ZERO;
 
         var order = m_orderRepository.findById(orderId)
@@ -114,6 +113,7 @@ public class PaymentService {
             throw new ApiException(MyError.ORDER_CANCELED);
 
         for (var orderItem : order.getOrderItems()) {
+            var item = new BasketItem();
             var product = orderItem.getProduct();
             var quantity = orderItem.getQuantity();
 
@@ -164,8 +164,6 @@ public class PaymentService {
 
         var user = order.getUser();
 
-        m_securityControl.checkTokenUserMatch(user.getUsername());
-
         var options = new Options();
         options.setApiKey(m_apiKey);
         options.setSecretKey(m_apiSecret);
@@ -185,6 +183,7 @@ public class PaymentService {
         paymentRequest.setPaymentCard(setCardInfoForUser(cardId));
         paymentRequest.setBuyer(buyer);
         paymentRequest.setBasketItems(basketItems);
+
         paymentRequest.setPrice(order.getTotalPrice());
         paymentRequest.setPaidPrice(paidPrice);
 
