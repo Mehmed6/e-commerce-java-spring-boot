@@ -192,7 +192,7 @@ public class PaymentService {
         if ("success".equals(payment.getStatus())) {
             order.setStatus(Status.COMPLETED);
             m_orderRepository.save(order);
-            return "success, payment ID: " + payment.getPaymentId();
+            return "Success, payment ID: " + payment.getPaymentId();
         } else
             throw new ApiException(MyError.GENERAL_ERROR, payment.getErrorMessage());
 

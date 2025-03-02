@@ -158,20 +158,20 @@ public class ShoppingController {
     @PostMapping("pay")
     public String pay(@RequestParam Long addressId, @ModelAttribute CardInfoRequest request, HttpSession session, Model model , HttpServletRequest servletRequest)
     {
+        var message = "";
         try {
             var orderId = (Long) session.getAttribute("orderId");
             var username = m_orderService.findOrderById(orderId).getUser().getUsername();
             request.setUsername(username);
             var card = checkCardIfExist(request);
-            m_paymentService.makePayment(addressId, card.getCardInfoId(), orderId , servletRequest);
+            message = m_paymentService.makePayment(addressId, card.getCardInfoId(), orderId , servletRequest);
         }
         catch (ApiException ex) {
             model.addAttribute("errorMessage", ex.getMessage());
             return "redirect:/public/order/show/my-orders";
-
         }
 
-        model.addAttribute("message", "Payment successful");
+        model.addAttribute("message", message);
         return "payment/paymentPage";
     }
 
