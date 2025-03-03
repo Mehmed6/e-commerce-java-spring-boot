@@ -1,4 +1,4 @@
-package com.doganmehmet.app.services.json;
+package com.doganmehmet.app.services;
 
 import com.doganmehmet.app.dto.address.AddressDTO;
 import com.doganmehmet.app.entity.Address;
@@ -11,7 +11,6 @@ import com.doganmehmet.app.repositories.IAddressRepository;
 import com.doganmehmet.app.repositories.IUserAddressRepository;
 import com.doganmehmet.app.repositories.IUserRepository;
 import com.doganmehmet.app.request.AddressRequest;
-import com.doganmehmet.app.services.SecurityControl;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;

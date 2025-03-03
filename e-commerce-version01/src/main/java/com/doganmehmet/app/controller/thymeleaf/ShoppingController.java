@@ -1,6 +1,7 @@
 package com.doganmehmet.app.controller.thymeleaf;
 
 
+import com.doganmehmet.app.bean.thymeleaf.ThymeleafBeanName;
 import com.doganmehmet.app.entity.CardInfo;
 import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
@@ -10,7 +11,7 @@ import com.doganmehmet.app.repositories.IUserRepository;
 import com.doganmehmet.app.request.CardInfoRequest;
 import com.doganmehmet.app.services.CartService;
 import com.doganmehmet.app.services.OrderService;
-import com.doganmehmet.app.services.json.PaymentService;
+import com.doganmehmet.app.services.PaymentService;
 import com.doganmehmet.app.services.thymeleaf.ProductService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -18,7 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@Controller(ThymeleafBeanName.THYMELEAF_SHOPPING_CONTROLLER)
 @RequestMapping("public/")
 public class ShoppingController {
     private final CartService m_cartService;

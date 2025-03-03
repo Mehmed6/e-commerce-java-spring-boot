@@ -5,6 +5,7 @@ import com.doganmehmet.app.dto.product.ProductSaveDTO;
 import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.services.thymeleaf.ProductService;
 import com.doganmehmet.app.services.SecurityControl;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +20,7 @@ public class ProductController {
     private final ProductService m_productService;
     private final SecurityControl m_securityControl;
 
-    public ProductController(ProductService productService, SecurityControl securityControl)
+    public ProductController(@Qualifier(ThymeleafBeanName.THYMELEAF_PRODUCT_SERVICE) ProductService productService, SecurityControl securityControl)
     {
         m_productService = productService;
         m_securityControl = securityControl;

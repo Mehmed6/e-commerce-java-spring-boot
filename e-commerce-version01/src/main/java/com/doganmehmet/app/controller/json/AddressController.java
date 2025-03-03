@@ -1,14 +1,15 @@
 package com.doganmehmet.app.controller.json;
 
+import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.dto.address.AddressDTO;
 import com.doganmehmet.app.request.AddressRequest;
-import com.doganmehmet.app.services.json.AddressService;
+import com.doganmehmet.app.services.AddressService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController(JSONBeanName.JSON_ADDRESS_CONTROLLER)
 @RequestMapping("json/api/address")
 public class AddressController {
 

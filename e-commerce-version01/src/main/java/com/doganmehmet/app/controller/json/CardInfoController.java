@@ -1,14 +1,15 @@
 package com.doganmehmet.app.controller.json;
 
+import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.dto.cardinfo.CardInfoDTO;
 import com.doganmehmet.app.request.CardInfoRequest;
 import com.doganmehmet.app.services.SecurityControl;
-import com.doganmehmet.app.services.json.CardInfoService;
+import com.doganmehmet.app.services.CardInfoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController(JSONBeanName.JSON_CARD_INFO_CONTROLLER)
 @RequestMapping("/json/api/card")
 public class CardInfoController {
     private final CardInfoService m_cardInfoService;

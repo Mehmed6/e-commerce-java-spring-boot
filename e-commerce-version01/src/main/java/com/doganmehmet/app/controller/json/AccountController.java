@@ -3,7 +3,7 @@ package com.doganmehmet.app.controller.json;
 import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.dto.account.AccountDTO;
 import com.doganmehmet.app.dto.account.AccountSaveDTO;
-import com.doganmehmet.app.services.json.AccountService;
+import com.doganmehmet.app.services.AccountService;
 import jakarta.validation.Valid;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

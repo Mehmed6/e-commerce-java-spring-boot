@@ -1,4 +1,4 @@
-package com.doganmehmet.app.services.json;
+package com.doganmehmet.app.services;
 
 import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.dto.account.AccountDTO;
@@ -8,7 +8,6 @@ import com.doganmehmet.app.exception.MyError;
 import com.doganmehmet.app.mapper.IAccountMapper;
 import com.doganmehmet.app.repositories.IAccountRepository;
 import com.doganmehmet.app.repositories.IUserRepository;
-import com.doganmehmet.app.services.SecurityControl;
 import jakarta.transaction.Transactional;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

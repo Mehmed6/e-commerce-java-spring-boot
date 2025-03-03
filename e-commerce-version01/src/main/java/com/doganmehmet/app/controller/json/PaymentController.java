@@ -1,12 +1,13 @@
 package com.doganmehmet.app.controller.json;
 
+import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.request.PaymentRequest;
-import com.doganmehmet.app.services.json.PaymentService;
+import com.doganmehmet.app.services.PaymentService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.*;
 
 
-@RestController
+@RestController(JSONBeanName.JSON_PAYMENT_CONTROLLER)
 @RequestMapping("json/api/payment")
 public class PaymentController {
     private final PaymentService m_paymentService;

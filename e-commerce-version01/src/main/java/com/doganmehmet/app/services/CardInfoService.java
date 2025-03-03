@@ -1,4 +1,4 @@
-package com.doganmehmet.app.services.json;
+package com.doganmehmet.app.services;
 
 import com.doganmehmet.app.dto.cardinfo.CardInfoDTO;
 import com.doganmehmet.app.entity.CardInfo;
@@ -8,7 +8,6 @@ import com.doganmehmet.app.mapper.ICardInfoMapper;
 import com.doganmehmet.app.repositories.ICardInfoRepository;
 import com.doganmehmet.app.repositories.IUserRepository;
 import com.doganmehmet.app.request.CardInfoRequest;
-import com.doganmehmet.app.services.SecurityControl;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
