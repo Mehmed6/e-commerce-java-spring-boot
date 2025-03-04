@@ -35,10 +35,8 @@ public class LoginController {
                         HttpSession session,
                         Model model) {
 
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("errorMessage", "Please fill in the required fields!!");
+        if (bindingResult.hasErrors())
             return "login/my-login";
-        }
 
         try {
             var token = m_loginService.login(loginRequest);

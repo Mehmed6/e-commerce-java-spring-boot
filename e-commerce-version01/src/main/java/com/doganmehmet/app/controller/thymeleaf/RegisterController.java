@@ -23,8 +23,9 @@ public class RegisterController {
     }
 
     @GetMapping("/register")
-    public String showRegisterForm()
+    public String showRegisterForm(Model model)
     {
+        model.addAttribute("registerRequest", new RegisterRequest());
         return "register/my-register";
     }
 
@@ -34,11 +35,8 @@ public class RegisterController {
                            RedirectAttributes redirectAttributes,
                            Model model)
     {
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("errorMessage", "Fields cannot contain only spaces!!");
+        if (bindingResult.hasErrors())
             return "register/my-register";
-        }
-
 
         try {
             m_registerService.register(request);

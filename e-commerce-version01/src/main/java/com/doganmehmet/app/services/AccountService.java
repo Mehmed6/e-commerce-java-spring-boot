@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.List;
 
-@Service(JSONBeanName.JSON_ACCOUNT_SERVICE)
+@Service
 public class AccountService {
     private final IAccountRepository m_accountRepository;
     private final SecurityControl m_securityControl;

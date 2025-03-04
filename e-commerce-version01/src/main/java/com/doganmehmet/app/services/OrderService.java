@@ -19,7 +19,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service(JSONBeanName.JSON_ORDER_SERVICE)
+@Service
 public class OrderService {
     private final IOrderRepository m_orderRepository;
     private final SecurityControl m_securityControl;

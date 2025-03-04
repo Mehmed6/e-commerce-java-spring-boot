@@ -19,7 +19,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service("json")
+@Service
 public class PaymentService {
 
     private final IAddressRepository m_addressRepository;
