@@ -1,5 +1,7 @@
 package com.doganmehmet.app.config;
 
+import com.doganmehmet.app.exception.ApiException;
+import com.doganmehmet.app.exception.MyError;
 import com.doganmehmet.app.repositories.IUserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +24,7 @@ public class AppConfig{
     public UserDetailsService userDetailsService()
     {
         return username -> m_userRepository.findByUsername(username).
-                orElseThrow(() -> new UsernameNotFoundException("User not found: " + username ));
+                orElseThrow(() -> new ApiException(MyError.USER_NOT_FOUND));
     }
 
     @Bean

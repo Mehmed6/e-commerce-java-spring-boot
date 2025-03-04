@@ -39,12 +39,11 @@ public class SecurityConfig {
                         .requestMatchers(REGISTER, LOGIN, REFRESH_TOKEN, DASHBOARD, ADMIN, PUBLIC).permitAll()
                         .requestMatchers("/css/**", "/favicon.ico").permitAll()
                         .requestMatchers("api/admin/save/form").permitAll()
-//                        .requestMatchers(ADMIN)
                         .anyRequest()
                         .authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(m_authenticationProvider)
-                .addFilterBefore(m_authenticationFilter, UsernamePasswordAuthenticationFilter.class)//burdan sonrası deneme
+                .addFilterBefore(m_authenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .formLogin().disable()
                 .logout(logout -> logout.logoutUrl("/logout").permitAll());
 
