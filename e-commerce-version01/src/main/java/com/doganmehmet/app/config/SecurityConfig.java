@@ -38,7 +38,6 @@ public class SecurityConfig {
                 .authorizeHttpRequests(request -> request
                         .requestMatchers(REGISTER, LOGIN, REFRESH_TOKEN, DASHBOARD, ADMIN, PUBLIC).permitAll()
                         .requestMatchers("/css/**", "/favicon.ico").permitAll()
-                        .requestMatchers("api/admin/save/form").permitAll()
                         .anyRequest()
                         .authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
