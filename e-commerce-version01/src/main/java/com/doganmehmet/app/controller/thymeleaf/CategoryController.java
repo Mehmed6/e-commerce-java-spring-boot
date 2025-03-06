@@ -2,8 +2,8 @@ package com.doganmehmet.app.controller.thymeleaf;
 
 import com.doganmehmet.app.bean.thymeleaf.ThymeleafBeanName;
 import com.doganmehmet.app.exception.ApiException;
-import com.doganmehmet.app.services.thymeleaf.CategoryService;
-import com.doganmehmet.app.services.SecurityControl;
+import com.doganmehmet.app.service.thymeleaf.CategoryService;
+import com.doganmehmet.app.service.SecurityControl;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Controller;

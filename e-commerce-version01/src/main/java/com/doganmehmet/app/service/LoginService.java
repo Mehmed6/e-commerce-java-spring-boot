@@ -1,11 +1,11 @@
-package com.doganmehmet.app.services;
+package com.doganmehmet.app.service;
 
 import com.doganmehmet.app.entity.JwtToken;
 import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
 import com.doganmehmet.app.request.LoginRequest;
 import com.doganmehmet.app.jwt.JWTTransactions;
-import com.doganmehmet.app.repositories.IUserRepository;
+import com.doganmehmet.app.repository.IUserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

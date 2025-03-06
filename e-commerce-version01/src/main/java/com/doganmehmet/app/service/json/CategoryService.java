@@ -1,4 +1,4 @@
-package com.doganmehmet.app.services.json;
+package com.doganmehmet.app.service.json;
 
 import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.dto.category.CategoryDTOS;
@@ -6,7 +6,7 @@ import com.doganmehmet.app.entity.Category;
 import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
 import com.doganmehmet.app.mapper.ICategoryMapper;
-import com.doganmehmet.app.repositories.ICategoryRepository;
+import com.doganmehmet.app.repository.ICategoryRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 

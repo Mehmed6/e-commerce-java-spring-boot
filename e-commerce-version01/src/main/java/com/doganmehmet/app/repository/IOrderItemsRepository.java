@@ -1,4 +1,4 @@
-package com.doganmehmet.app.repositories;
+package com.doganmehmet.app.repository;
 
 import com.doganmehmet.app.entity.OrderItems;
 import org.springframework.data.jpa.repository.JpaRepository;

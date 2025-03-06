@@ -3,7 +3,7 @@ package com.doganmehmet.app.controller.json;
 import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.dto.category.CategoryDTOS;
 import com.doganmehmet.app.entity.Category;
-import com.doganmehmet.app.services.json.CategoryService;
+import com.doganmehmet.app.service.json.CategoryService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

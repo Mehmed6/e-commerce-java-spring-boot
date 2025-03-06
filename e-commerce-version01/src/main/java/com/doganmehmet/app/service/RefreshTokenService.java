@@ -1,11 +1,11 @@
-package com.doganmehmet.app.services;
+package com.doganmehmet.app.service;
 
 import com.doganmehmet.app.entity.RefreshToken;
 import com.doganmehmet.app.entity.User;
 import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
 import com.doganmehmet.app.jwt.JWTTransactions;
-import com.doganmehmet.app.repositories.IRefreshTokenRepository;
+import com.doganmehmet.app.repository.IRefreshTokenRepository;
 import com.doganmehmet.app.response.LoginResponse;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;

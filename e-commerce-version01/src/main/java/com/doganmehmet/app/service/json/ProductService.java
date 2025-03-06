@@ -1,4 +1,4 @@
-package com.doganmehmet.app.services.json;
+package com.doganmehmet.app.service.json;
 
 import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.dto.product.ProductDTO;
@@ -7,7 +7,7 @@ import com.doganmehmet.app.dto.product.ProductSaveDTO;
 import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
 import com.doganmehmet.app.mapper.IProductMapper;
-import com.doganmehmet.app.repositories.IProductRepository;
+import com.doganmehmet.app.repository.IProductRepository;
 import org.springframework.stereotype.Service;
 
 

@@ -1,12 +1,12 @@
-package com.doganmehmet.app.services;
+package com.doganmehmet.app.service;
 
 import com.doganmehmet.app.dto.cardinfo.CardInfoDTO;
 import com.doganmehmet.app.entity.CardInfo;
 import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
 import com.doganmehmet.app.mapper.ICardInfoMapper;
-import com.doganmehmet.app.repositories.ICardInfoRepository;
-import com.doganmehmet.app.repositories.IUserRepository;
+import com.doganmehmet.app.repository.ICardInfoRepository;
+import com.doganmehmet.app.repository.IUserRepository;
 import com.doganmehmet.app.request.CardInfoRequest;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;

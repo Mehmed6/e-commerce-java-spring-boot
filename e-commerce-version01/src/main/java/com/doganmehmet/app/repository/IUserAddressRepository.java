@@ -1,4 +1,4 @@
-package com.doganmehmet.app.repositories;
+package com.doganmehmet.app.repository;
 
 import com.doganmehmet.app.entity.Address;
 import com.doganmehmet.app.entity.User;

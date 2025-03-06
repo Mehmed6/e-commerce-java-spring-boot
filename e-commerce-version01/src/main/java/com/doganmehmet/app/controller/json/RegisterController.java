@@ -3,7 +3,7 @@ package com.doganmehmet.app.controller.json;
 import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.dto.user.UserDTO;
 import com.doganmehmet.app.request.RegisterRequest;
-import com.doganmehmet.app.services.RegisterService;
+import com.doganmehmet.app.service.RegisterService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

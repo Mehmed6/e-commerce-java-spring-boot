@@ -4,8 +4,8 @@ import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.dto.cartitem.CartItemDTOS;
 import com.doganmehmet.app.mapper.ICartItemMapper;
 import com.doganmehmet.app.request.AddToCartRequest;
-import com.doganmehmet.app.services.CartService;
-import com.doganmehmet.app.services.SecurityControl;
+import com.doganmehmet.app.service.CartService;
+import com.doganmehmet.app.service.SecurityControl;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 

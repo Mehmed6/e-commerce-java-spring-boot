@@ -1,8 +1,8 @@
-package com.doganmehmet.app.services;
+package com.doganmehmet.app.service;
 
 import com.doganmehmet.app.entity.User;
 import com.doganmehmet.app.enums.Roles;
-import com.doganmehmet.app.repositories.IUserRepository;
+import com.doganmehmet.app.repository.IUserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;

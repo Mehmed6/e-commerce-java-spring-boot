@@ -1,13 +1,12 @@
-package com.doganmehmet.app.services;
+package com.doganmehmet.app.service;
 
-import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.dto.account.AccountDTO;
 import com.doganmehmet.app.dto.account.AccountSaveDTO;
 import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
 import com.doganmehmet.app.mapper.IAccountMapper;
-import com.doganmehmet.app.repositories.IAccountRepository;
-import com.doganmehmet.app.repositories.IUserRepository;
+import com.doganmehmet.app.repository.IAccountRepository;
+import com.doganmehmet.app.repository.IUserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

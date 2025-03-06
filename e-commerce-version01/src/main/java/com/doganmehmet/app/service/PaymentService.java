@@ -1,4 +1,4 @@
-package com.doganmehmet.app.services;
+package com.doganmehmet.app.service;
 
 
 import com.doganmehmet.app.entity.Order;
@@ -6,7 +6,7 @@ import com.doganmehmet.app.entity.User;
 import com.doganmehmet.app.enums.Status;
 import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
-import com.doganmehmet.app.repositories.*;
+import com.doganmehmet.app.repository.*;
 import com.iyzipay.Options;
 import com.iyzipay.model.*;
 import com.iyzipay.request.CreatePaymentRequest;

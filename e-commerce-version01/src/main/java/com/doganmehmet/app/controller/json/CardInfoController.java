@@ -3,8 +3,8 @@ package com.doganmehmet.app.controller.json;
 import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.dto.cardinfo.CardInfoDTO;
 import com.doganmehmet.app.request.CardInfoRequest;
-import com.doganmehmet.app.services.SecurityControl;
-import com.doganmehmet.app.services.CardInfoService;
+import com.doganmehmet.app.service.SecurityControl;
+import com.doganmehmet.app.service.CardInfoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

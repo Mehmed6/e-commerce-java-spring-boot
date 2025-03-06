@@ -3,7 +3,7 @@ package com.doganmehmet.app.controller.thymeleaf;
 import com.doganmehmet.app.bean.thymeleaf.ThymeleafBeanName;
 import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.request.LoginRequest;
-import com.doganmehmet.app.services.LoginService;
+import com.doganmehmet.app.service.LoginService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;

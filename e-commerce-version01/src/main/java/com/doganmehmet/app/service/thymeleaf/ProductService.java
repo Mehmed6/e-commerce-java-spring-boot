@@ -1,13 +1,13 @@
-package com.doganmehmet.app.services.thymeleaf;
+package com.doganmehmet.app.service.thymeleaf;
 
 import com.doganmehmet.app.bean.thymeleaf.ThymeleafBeanName;
 import com.doganmehmet.app.dto.product.ProductSaveDTO;
 import com.doganmehmet.app.entity.Product;
 import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
-import com.doganmehmet.app.repositories.ICategoryRepository;
-import com.doganmehmet.app.repositories.IProductRepository;
-import com.doganmehmet.app.services.SecurityControl;
+import com.doganmehmet.app.repository.ICategoryRepository;
+import com.doganmehmet.app.repository.IProductRepository;
+import com.doganmehmet.app.service.SecurityControl;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

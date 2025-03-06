@@ -2,7 +2,7 @@ package com.doganmehmet.app.controller.json;
 
 import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.response.LoginResponse;
-import com.doganmehmet.app.services.RefreshTokenService;
+import com.doganmehmet.app.service.RefreshTokenService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

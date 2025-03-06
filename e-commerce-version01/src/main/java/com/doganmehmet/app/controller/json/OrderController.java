@@ -6,8 +6,8 @@ import com.doganmehmet.app.dto.order.OrderDTO;
 import com.doganmehmet.app.dto.order.OrderDTOS;
 import com.doganmehmet.app.enums.Status;
 import com.doganmehmet.app.mapper.IOrderMapper;
-import com.doganmehmet.app.services.SecurityControl;
-import com.doganmehmet.app.services.OrderService;
+import com.doganmehmet.app.service.SecurityControl;
+import com.doganmehmet.app.service.OrderService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 

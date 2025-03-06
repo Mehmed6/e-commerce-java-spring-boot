@@ -1,10 +1,10 @@
-package com.doganmehmet.app.services.thymeleaf;
+package com.doganmehmet.app.service.thymeleaf;
 
 import com.doganmehmet.app.bean.thymeleaf.ThymeleafBeanName;
 import com.doganmehmet.app.entity.Category;
 import com.doganmehmet.app.mapper.ICategoryMapper;
-import com.doganmehmet.app.repositories.ICategoryRepository;
-import com.doganmehmet.app.services.SecurityControl;
+import com.doganmehmet.app.repository.ICategoryRepository;
+import com.doganmehmet.app.service.SecurityControl;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 

@@ -4,7 +4,7 @@ import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.dto.product.ProductDTO;
 import com.doganmehmet.app.dto.product.ProductDTOS;
 import com.doganmehmet.app.dto.product.ProductSaveDTO;
-import com.doganmehmet.app.services.json.ProductService;
+import com.doganmehmet.app.service.json.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.prepost.PreAuthorize;

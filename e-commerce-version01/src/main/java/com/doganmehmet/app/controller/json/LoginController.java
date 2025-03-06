@@ -4,7 +4,7 @@ import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.dto.jwtToken.JwtTokenDTO;
 import com.doganmehmet.app.mapper.IJwtTokenMapper;
 import com.doganmehmet.app.request.LoginRequest;
-import com.doganmehmet.app.services.LoginService;
+import com.doganmehmet.app.service.LoginService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 

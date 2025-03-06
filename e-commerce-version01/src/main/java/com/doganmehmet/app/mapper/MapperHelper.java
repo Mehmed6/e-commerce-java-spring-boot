@@ -1,7 +1,7 @@
 package com.doganmehmet.app.mapper;
 
 import com.doganmehmet.app.entity.Category;
-import com.doganmehmet.app.services.json.CategoryService;
+import com.doganmehmet.app.service.json.CategoryService;
 import org.mapstruct.Named;
 import org.springframework.stereotype.Component;
 

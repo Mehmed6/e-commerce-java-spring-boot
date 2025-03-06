@@ -1,6 +1,5 @@
-package com.doganmehmet.app.services;
+package com.doganmehmet.app.service;
 
-import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.dto.order.OrderDTO;
 import com.doganmehmet.app.dto.order.OrderDTOS;
 import com.doganmehmet.app.entity.Order;
@@ -9,9 +8,9 @@ import com.doganmehmet.app.enums.Status;
 import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
 import com.doganmehmet.app.mapper.IOrderMapper;
-import com.doganmehmet.app.repositories.IOrderRepository;
-import com.doganmehmet.app.repositories.IProductRepository;
-import com.doganmehmet.app.repositories.IUserRepository;
+import com.doganmehmet.app.repository.IOrderRepository;
+import com.doganmehmet.app.repository.IProductRepository;
+import com.doganmehmet.app.repository.IUserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 

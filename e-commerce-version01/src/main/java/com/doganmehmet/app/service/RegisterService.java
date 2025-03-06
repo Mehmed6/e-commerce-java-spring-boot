@@ -1,4 +1,4 @@
-package com.doganmehmet.app.services;
+package com.doganmehmet.app.service;
 
 import com.doganmehmet.app.dto.user.UserDTO;
 import com.doganmehmet.app.entity.User;
@@ -7,7 +7,7 @@ import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
 import com.doganmehmet.app.request.RegisterRequest;
 import com.doganmehmet.app.mapper.IMapper;
-import com.doganmehmet.app.repositories.IUserRepository;
+import com.doganmehmet.app.repository.IUserRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 

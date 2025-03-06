@@ -1,4 +1,4 @@
-package com.doganmehmet.app.services;
+package com.doganmehmet.app.service;
 
 import com.doganmehmet.app.dto.address.AddressDTO;
 import com.doganmehmet.app.entity.Address;
@@ -7,9 +7,9 @@ import com.doganmehmet.app.entity.UserAddress;
 import com.doganmehmet.app.exception.ApiException;
 import com.doganmehmet.app.exception.MyError;
 import com.doganmehmet.app.mapper.IAddressMapper;
-import com.doganmehmet.app.repositories.IAddressRepository;
-import com.doganmehmet.app.repositories.IUserAddressRepository;
-import com.doganmehmet.app.repositories.IUserRepository;
+import com.doganmehmet.app.repository.IAddressRepository;
+import com.doganmehmet.app.repository.IUserAddressRepository;
+import com.doganmehmet.app.repository.IUserRepository;
 import com.doganmehmet.app.request.AddressRequest;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Example;

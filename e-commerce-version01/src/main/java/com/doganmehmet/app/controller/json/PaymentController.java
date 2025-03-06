@@ -2,7 +2,7 @@ package com.doganmehmet.app.controller.json;
 
 import com.doganmehmet.app.bean.json.JSONBeanName;
 import com.doganmehmet.app.request.PaymentRequest;
-import com.doganmehmet.app.services.PaymentService;
+import com.doganmehmet.app.service.PaymentService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.*;
 
