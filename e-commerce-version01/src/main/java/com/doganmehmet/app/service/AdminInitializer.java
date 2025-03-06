@@ -33,7 +33,7 @@ public class AdminInitializer implements CommandLineRunner {
 
             m_userRepository.save(admin);
 
-            System.out.println("Admin kullanıcı oluşturuldu: admin@example.com / admin123");
+            System.out.println("Admin has been created: admin@example.com / admin");
 
         }
     }
