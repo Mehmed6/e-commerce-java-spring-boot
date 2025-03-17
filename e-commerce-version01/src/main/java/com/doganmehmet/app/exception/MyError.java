@@ -45,6 +45,7 @@ public enum MyError {
     CARD_NOT_FOUND("1034", "Card not found!"),
     ORDER_CANCELED("1035", "Order has been canceled. Please create a new one!"),
     CATEGORY_ALREADY_EXISTS("1036", "Category is already exists!"),
+    WRITE_TO_FILE_EXCEPTION("1037", "An error occurred while writing the file!"),
     ;
 
 
