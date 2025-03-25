@@ -22,6 +22,13 @@ public class SecurityConfig {
     private static final String ADMIN = "/admin/**";
     private static final String DASHBOARD = "/dashboard";
     private static final String PUBLIC = "/public/**";
+    private static final String [] SWAGGER_PATHS = {
+            "/v3/api-docs/**",
+            "/swagger-ui/**",
+            "/swagger-ui.html",
+            "/swagger-ui/index.html",
+            "/webjars/**"
+    };
 
     private final AuthenticationProvider m_authenticationProvider;
     private final JWTAuthenticationFilter m_authenticationFilter;
@@ -37,6 +44,7 @@ public class SecurityConfig {
         http.csrf().disable()
                 .authorizeHttpRequests(request -> request
                         .requestMatchers(REGISTER, LOGIN, REFRESH_TOKEN, DASHBOARD, ADMIN, PUBLIC).permitAll()
+                        .requestMatchers(SWAGGER_PATHS).permitAll()
                         .requestMatchers("/css/**", "/favicon.ico").permitAll()
                         .anyRequest()
                         .authenticated())

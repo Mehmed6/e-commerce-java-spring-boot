@@ -19,6 +19,7 @@ The project leverages tools like MapStruct and Lombok to simplify coding and inc
 * PostgreSQL
 * Iyzico Payment Integration
 * Mapstruct
+* Swagger
 
 ## 🔗  Services
 
