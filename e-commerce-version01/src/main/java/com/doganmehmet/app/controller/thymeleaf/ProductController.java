@@ -29,6 +29,7 @@ public class ProductController {
     @GetMapping("/admin/product/save/form")
     public String showSaveForm(Model model)
     {
+        model.addAttribute("productSaveDTO", new ProductSaveDTO());
         return "product/saveProduct";
     }
 
