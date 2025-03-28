@@ -20,6 +20,7 @@ The project leverages tools like MapStruct and Lombok to simplify coding and inc
 * Iyzico Payment Integration
 * Mapstruct
 * Swagger
+* Docker & Docker Compose
 
 ## 🔗  Services
 
@@ -278,3 +279,11 @@ Example:
 
 * URL: `http://localhost:6767/public/pay`
   The user can complete the payment on this page.
+
+# NOTES
+### AdminInitializer
+This class automatically creates an admin user with the username `admin` and password `admin` at the beginning of the program.
+
+### Docker & Docker Compose:
+* The project includes a `docker-compose.yml` file that allows you to run the project in a Docker container.
+* To run the project with Docker and Docker Compose, you can easily start the application by using the Docker Compose file. After cloning the project, run the `docker-compose up --build` command to start the application along with all dependencies.
