@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/dashboard/dashboard.css}">
+
+</head>
+<body>
+
+<div class="dashboard-container">
+    <h1>Admin Dashboard</h1>
+    <p><strong>Username:</strong> <span th:text="${username}"></span></p>
+
+    <div class="dashboard-buttons">
+        <a th:href="@{/admin/category/save/form}" class="dashboard-button">Save New Category</a>
+        <a th:href="@{/admin/product/save/form}" class="dashboard-button">Save New Product</a>
+        <a th:href="@{/public/show/all/products}" class="dashboard-button">Show All Products</a>
+        <a th:href="@{/public/show/all/categories}" class="dashboard-button">Show All Categories</a>
+        <a th:href="@{/auth/login}" class="dashboard-button logout-button">Logout</a>
+    </div>
+</div>
+
+</body>
+</html>
