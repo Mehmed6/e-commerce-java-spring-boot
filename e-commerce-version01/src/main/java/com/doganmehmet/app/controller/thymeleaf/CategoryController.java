@@ -53,7 +53,7 @@ public class CategoryController {
         return "category/categoryList";
     }
 
-    @GetMapping("show/all/categories")
+    @GetMapping("/public/show/all/categories")
     public String showCategories(Model model)
     {
         model.addAttribute("categories", m_categoryService.findAll());

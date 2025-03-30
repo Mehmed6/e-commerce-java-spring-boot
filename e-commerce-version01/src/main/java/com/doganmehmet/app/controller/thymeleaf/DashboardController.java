@@ -27,17 +27,16 @@ public class DashboardController {
         String jwtToken = jwtTokenObj.toString();
         String refreshToken = refreshTokenObj.toString();
 
-        model.addAttribute("username", username);
+        model.addAttribute("username", username.toUpperCase());
+
+        if (username.equalsIgnoreCase("admin"))
+            return "dashboard/adminDashboard";
+
+
         model.addAttribute("jwtToken", jwtToken);
         model.addAttribute("refreshToken", refreshToken);
 
-        return "dashboard";
-    }
-
-    @GetMapping("/logout")
-    public String logout()
-    {
-        return "login/my-login";
+        return "dashboard/dashboard";
     }
 
 }

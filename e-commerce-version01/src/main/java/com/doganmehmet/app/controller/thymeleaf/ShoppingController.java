@@ -157,7 +157,9 @@ public class ShoppingController {
     }
 
     @PostMapping("pay")
-    public String pay(@RequestParam Long addressId, @ModelAttribute CardInfoRequest request, HttpSession session, Model model , HttpServletRequest servletRequest)
+    public String pay(@RequestParam Long addressId,
+                      @ModelAttribute CardInfoRequest request,
+                      HttpSession session, Model model , HttpServletRequest servletRequest)
     {
         var message = "";
         try {
@@ -169,7 +171,7 @@ public class ShoppingController {
         }
         catch (ApiException ex) {
             model.addAttribute("errorMessage", ex.getMessage());
-            return "redirect:/public/order/show/my-orders";
+            return "errorPage";
         }
 
         model.addAttribute("message", message);

@@ -17,10 +17,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private static final String REGISTER = "/register/**";
-    private static final String LOGIN = "/auth/login/**";
+    private static final String LOGIN = "/auth/login";
     private static final String REFRESH_TOKEN = "/refreshToken/**";
     private static final String ADMIN = "/admin/**";
-    private static final String DASHBOARD = "/dashboard";
+    private static final String DASHBOARD = "/dashboard/**";
     private static final String PUBLIC = "/public/**";
     private static final String [] SWAGGER_PATHS = {
             "/v3/api-docs/**",
@@ -51,7 +51,6 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(m_authenticationProvider)
                 .addFilterBefore(m_authenticationFilter, UsernamePasswordAuthenticationFilter.class);
-
 
         return http.build();
     }

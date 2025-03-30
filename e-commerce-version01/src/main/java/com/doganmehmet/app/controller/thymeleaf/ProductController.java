@@ -70,7 +70,7 @@ public class ProductController {
         return "product/productList";
     }
 
-    @GetMapping("/show/all/products")
+    @GetMapping("/public/show/all/products")
     public String showProducts(Model model)
     {
         model.addAttribute("products", m_productService.findAll());
