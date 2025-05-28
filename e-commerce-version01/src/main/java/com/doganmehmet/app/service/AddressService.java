@@ -62,14 +62,11 @@ public class AddressService {
 
         var address = new Address();
 
-        if (existingAddress(addressRequest).isPresent()) {
-            System.out.println("deneme");
+        if (existingAddress(addressRequest).isPresent())
             address = existingAddress(addressRequest).get();
-        }
-        else {
-            System.out.println("Else kısmı");
+
+        else
             address = m_addressRepository.save(m_addressMapper.toAddress(addressRequest));
-        }
 
         var userAddress = new UserAddress();
         if (existingUserAddress(user, address)) {

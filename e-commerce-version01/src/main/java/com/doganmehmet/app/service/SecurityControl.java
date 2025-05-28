@@ -25,9 +25,9 @@ public class SecurityControl {
 
     public void checkTokenUserMatch(String username)
     {
-        var token = SecurityContextHolder.getContext().getAuthentication().getName();
+        var tokenUsername = SecurityContextHolder.getContext().getAuthentication().getName();
 
-        if (!username.equals(token))
+        if (!username.equals(tokenUsername))
             throw new ApiException(MyError.INVALID_TOKEN_FOR_USER);
     }
 
